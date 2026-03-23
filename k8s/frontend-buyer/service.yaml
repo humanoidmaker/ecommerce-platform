@@ -1,0 +1,4 @@
+apiVersion: v1
+kind: Service
+metadata: { name: frontend-buyer-svc, namespace: ecommerce }
+spec: { selector: { app: frontend-buyer }, ports: [{ port: 80 }] }

@@ -1,0 +1,4 @@
+apiVersion: v1
+kind: Service
+metadata: { name: backend-svc, namespace: ecommerce }
+spec: { selector: { app: backend }, ports: [{ port: 8000 }] }

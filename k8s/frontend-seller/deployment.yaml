@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: frontend-seller, namespace: ecommerce }
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: frontend-seller } }
+  template:
+    metadata: { labels: { app: frontend-seller } }
+    spec:
+      containers:
+        - name: frontend-seller
+          image: ecommerce/frontend-seller:latest
+          ports: [{ containerPort: 80 }]
+          resources: { requests: { memory: 64Mi, cpu: 50m }, limits: { memory: 128Mi, cpu: 200m } }

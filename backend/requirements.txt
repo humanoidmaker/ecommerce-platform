@@ -1,0 +1,48 @@
+# FastAPI + Server
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.18
+
+# Database
+sqlalchemy[asyncio]==2.0.36
+asyncpg==0.30.0
+alembic==1.14.0
+greenlet==3.1.1
+
+# Redis
+redis[hiredis]==5.2.1
+
+# Celery
+celery[redis]==5.4.0
+
+# Auth
+pyjwt[crypto]==2.10.1
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+
+# Validation
+pydantic[email-validator]==2.10.3
+pydantic-settings==2.7.0
+
+# MinIO / S3
+minio==7.2.12
+
+# Image Processing
+Pillow==11.0.0
+
+# PDF Invoice
+weasyprint==63.1
+
+# Email
+aiosmtplib==3.0.2
+Jinja2==3.1.5
+
+# Recommendations (co-purchase analysis)
+scikit-learn==1.6.1
+numpy==2.0.2
+
+# Misc
+python-dateutil==2.9.0
+httpx==0.28.1
+orjson==3.10.12
+python-slugify==8.0.4

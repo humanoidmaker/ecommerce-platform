@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: postgres, namespace: ecommerce }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: postgres } }
+  template:
+    metadata: { labels: { app: postgres } }
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports: [{ containerPort: 5432 }]
+          env:
+            - { name: POSTGRES_DB, value: ecommerce }
+            - { name: POSTGRES_USER, value: ecommerce }
+            - { name: POSTGRES_PASSWORD, valueFrom: { secretKeyRef: { name: ecommerce-secrets, key: POSTGRES_PASSWORD } } }
+          volumeMounts: [{ name: pgdata, mountPath: /var/lib/postgresql/data }]
+          resources: { requests: { memory: 256Mi, cpu: 250m }, limits: { memory: 1Gi, cpu: "1" } }
+      volumes: [{ name: pgdata, persistentVolumeClaim: { claimName: postgres-pvc } }]
